@@ -129,7 +129,7 @@ module Mongoid
           if value.is_a?(Hash)
             association.nested_builder(value, {}).build(self)
           else
-            send("#{name}=", value)
+            process_attribute(name, value)
           end
         end
       end
